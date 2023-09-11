@@ -1,8 +1,11 @@
 import "./App.css";
 // import { v4 as uuidv4 } from "uuid";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
+import { Outlet } from "react-router-dom";
 import CheckoutPage from "./components/checkout-page/CheckoutPage";
 import HomePage from "./components/home-page/HomePage";
+
+export const ProductsContext = React.createContext([]);
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
@@ -51,8 +54,9 @@ function App() {
 
   return (
     <>
-      <HomePage products={allProducts} />
-      <CheckoutPage />
+      <ProductsContext.Provider value={allProducts}>
+        <Outlet />
+      </ProductsContext.Provider>
     </>
   );
 }
