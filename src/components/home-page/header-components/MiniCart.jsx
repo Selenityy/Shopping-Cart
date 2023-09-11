@@ -1,7 +1,8 @@
 import React from "react";
+import "../../../styles/MiniCart.css";
 import Button from "../../utilities/Button";
 
-const MiniCart = ({ cartItemCount, isVisible }) => {
+const MiniCart = ({ cartItemCount, isVisible, handleCartClick }) => {
   const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
 
   return (
@@ -19,7 +20,7 @@ const MiniCart = ({ cartItemCount, isVisible }) => {
       <Button
         id="mini-cart-continue-shopping"
         className="mini-cart-btn"
-        // onClick={} (makes it close out of the box)
+        onClick={handleCartClick} 
         label="Continue Shopping"
       />
       <Button

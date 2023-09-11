@@ -10,7 +10,7 @@ const Icons = ({handleCartClick}) => {
         src={cart}
         alt="shopping-cart-image"
         id="cart-icon"
-        className="shopping-cart-icons toggle-off"
+        className="shopping-cart-icons"
         onClick={handleCartClick}
       ></img>
     </div>
