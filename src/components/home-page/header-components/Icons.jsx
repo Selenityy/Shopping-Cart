@@ -1,16 +1,17 @@
+import React from "react";
 import cart from "../../../assets/shopping-bag.png";
 
-const Icons = () => {
-    
+const Icons = ({handleCartClick}) => {
 
   return (
-    <div>
+    <div id="checkout-cart-icon">
       <div id="item-count" className="shopping-cart-icons"></div>
       <img
         src={cart}
         alt="shopping-cart-image"
         id="cart-icon"
         className="shopping-cart-icons toggle-off"
+        onClick={handleCartClick}
       ></img>
     </div>
   );

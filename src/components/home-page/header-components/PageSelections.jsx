@@ -2,7 +2,7 @@ import Button from "../../utilities/Button";
 
 const PageSelections = ({ scrollToAd }) => {
   return (
-    <div>
+    <div id="page-selection-buttons">
       <Button
         id="home-btn"
         className="page-selection-btn"

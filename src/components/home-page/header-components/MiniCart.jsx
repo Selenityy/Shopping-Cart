@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "../../utilities/Button";
 
-const MiniCart = ({ cartItemCount }) => {
+const MiniCart = ({ cartItemCount, isVisible }) => {
+  const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
+
   return (
-    <div className="toggle-off">
+    <div id="mini-checkout-display" className={cartDisplayClass}>
       <h2 id="mini-cart">Your Cart</h2>
       <div>({cartItemCount})</div>
       <hr width="200px" id="hr"></hr>
