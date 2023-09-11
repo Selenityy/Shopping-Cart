@@ -3,7 +3,7 @@ import Advertisement from "./Advertisement";
 import Header from "./Header";
 import ProductTable from "./ProductTable";
 
-const HomePage = () => {
+const HomePage = ({ products }) => {
   const adRef = useRef(null);
 
   const scrollToAd = () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       <Header scrollToAd={scrollToAd} />
       <Advertisement adRef={adRef} />
-      <ProductTable />
+      <ProductTable products={products} />
     </>
   );
 };
