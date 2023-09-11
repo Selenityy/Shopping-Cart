@@ -2,11 +2,11 @@ import Button from "../../utilities/Button";
 
 const PageSelections = ({ scrollToAd }) => {
   return (
-    <>
+    <div>
       <Button
         id="home-btn"
         className="page-selection-btn"
-        onClick={handleHomeButtonClick}
+        // onClick={handleHomeButtonClick}
         label="Home"
       />
       <Button
@@ -18,10 +18,10 @@ const PageSelections = ({ scrollToAd }) => {
       <Button
         id="shop-btn"
         className="page-selection-btn"
-        onClick={handleShopButtonClick}
+        // onClick={handleShopButtonClick}
         label="Shop All"
       />
-    </>
+    </div>
   );
 };
 
