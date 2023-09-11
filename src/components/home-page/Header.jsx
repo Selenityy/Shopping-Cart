@@ -5,12 +5,12 @@ import Icons from "./header-components/Icons";
 
 const Header = ({ scrollToAd }) => {
   return (
-    <>
-      <h1>Brand Name</h1>
+    <div id="header-section" className="sections">
+      <h1>Amazela</h1>
       <PageSelections scrollToAd={scrollToAd} />
       <Icons />
       <MiniCart />
-    </>
+    </div>
   );
 };
 
