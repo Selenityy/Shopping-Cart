@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../styles/MiniCart.css";
 import Button from "../../utilities/Button";
 
 const MiniCart = ({ cartItemCount, isVisible, handleCartClick }) => {
   const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
+
+  const navigate = useNavigate();
+
+  const handleCheckoutClick = () => {
+    navigate("/checkout");
+  };
 
   return (
     <div id="mini-checkout-display" className={cartDisplayClass}>
@@ -20,13 +27,13 @@ const MiniCart = ({ cartItemCount, isVisible, handleCartClick }) => {
       <Button
         id="mini-cart-continue-shopping"
         className="mini-cart-btn"
-        onClick={handleCartClick} 
+        onClick={handleCartClick}
         label="Continue Shopping"
       />
       <Button
         id="mini-cart-view-cart"
         className="mini-cart-btn"
-        // onClick={} goes to the checkout page
+        onClick={handleCheckoutClick}
         label="View Cart"
       />
     </div>
