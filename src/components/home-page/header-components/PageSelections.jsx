@@ -1,6 +1,6 @@
 import Button from "../../utilities/Button";
 
-const PageSelections = ({ scrollToAd }) => {
+const PageSelections = ({ scrollToAd, scrollToProducts }) => {
   return (
     <div id="page-selection-buttons">
       <Button
@@ -18,7 +18,7 @@ const PageSelections = ({ scrollToAd }) => {
       <Button
         id="shop-btn"
         className="page-selection-btn"
-        // onClick={handleShopButtonClick}
+        onClick={scrollToProducts}
         label="Shop All"
       />
     </div>

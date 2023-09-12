@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/ProductTable.css";
 
-const ProductTable = ({ products }) => {
+const ProductTable = ({ products, productRef }) => {
   return (
-    <div id="product-section" className="sections">
+    <div ref={productRef} id="product-section" className="sections">
       {products.map((product) => (
         <div key={product.id} id={`product-${product.id}`} className="products">
           <img
