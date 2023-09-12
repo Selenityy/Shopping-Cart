@@ -1,12 +1,12 @@
 import Button from "../../utilities/Button";
 
-const PageSelections = ({ scrollToAd, scrollToProducts }) => {
+const PageSelections = ({ scrollToAd, scrollToProducts, scrollToHome }) => {
   return (
     <div id="page-selection-buttons">
       <Button
         id="home-btn"
         className="page-selection-btn"
-        // onClick={handleHomeButtonClick}
+        onClick={scrollToHome}
         label="Home"
       />
       <Button

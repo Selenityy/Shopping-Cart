@@ -8,8 +8,8 @@ const HomePage = () => {
   const products = useContext(ProductsContext);
 
   const adRef = useRef(null);
-
   const productRef = useRef(null);
+  const homeRef = useRef(null);
 
   const scrollToAd = () => {
     if (adRef.current) {
@@ -23,9 +23,20 @@ const HomePage = () => {
     }
   };
 
+  const scrollToHome = () => {
+    if (homeRef.current) {
+      homeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <Header scrollToAd={scrollToAd} scrollToProducts={scrollToProducts} />
+      <div ref={homeRef}></div>
+      <Header
+        scrollToAd={scrollToAd}
+        scrollToProducts={scrollToProducts}
+        scrollToHome={scrollToHome}
+      />
       <Advertisement adRef={adRef} />
       <ProductTable products={products} productRef={productRef} />
     </>
