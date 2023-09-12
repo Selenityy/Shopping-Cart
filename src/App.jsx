@@ -10,7 +10,9 @@ export const ProductsContext = React.createContext([]);
 function App() {
   const [allProducts, setAllProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]); // length changes on add to cart button
+  const [productQuantities, setProductQuantities] = useState()
   const [cartItemCount, setCartItemCount] = useState(0);
+ 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,7 +26,7 @@ function App() {
         }
 
         const data = await response.json();
-        console.log("Data: ", data);
+        // console.log("Data: ", data);
 
         const products = data.map((product) => ({
           id: product.id,
@@ -33,6 +35,7 @@ function App() {
           price: product.price,
           image: product.image,
           category: product.category,
+          quantity: 0,
         }));
 
         setAllProducts(products);
