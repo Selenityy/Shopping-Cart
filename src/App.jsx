@@ -10,9 +10,10 @@ export const ProductsContext = React.createContext([]);
 function App() {
   const [allProducts, setAllProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]); // length changes on add to cart button
-  const [productQuantities, setProductQuantities] = useState()
-  const [cartItemCount, setCartItemCount] = useState(0);
- 
+  const contextValues = {
+    allProducts,
+    selectedProducts,
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <>
-      <ProductsContext.Provider value={allProducts}>
+      <ProductsContext.Provider value={contextValues}>
         <Outlet />
       </ProductsContext.Provider>
     </>
