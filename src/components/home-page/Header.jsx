@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import MiniCart from "./header-components/MiniCart";
 import PageSelections from "./header-components/PageSelections";
 import Icons from "./header-components/Icons";
+import "../../styles/Header.css";
 
-const Header = ({ scrollToAd, scrollToProducts }) => {
+const Header = ({ scrollToAd, scrollToProducts, scrollToHome }) => {
   const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
   const handleCartClick = () => {
@@ -16,6 +17,7 @@ const Header = ({ scrollToAd, scrollToProducts }) => {
       <PageSelections
         scrollToAd={scrollToAd}
         scrollToProducts={scrollToProducts}
+        scrollToHome={scrollToHome}
       />
       <Icons handleCartClick={handleCartClick} />
       <MiniCart
