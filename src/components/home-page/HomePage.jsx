@@ -5,7 +5,10 @@ import Header from "./Header";
 import ProductTable from "./ProductTable";
 
 const HomePage = () => {
-  const products = useContext(ProductsContext);
+  //   const products = useContext(ProductsContext);
+  const { allProducts, selectedProducts } = useContext(ProductsContext);
+  console.log("Products:", allProducts);
+  console.log("Selected Products:", selectedProducts);
 
   const adRef = useRef(null);
   const productRef = useRef(null);
@@ -38,7 +41,7 @@ const HomePage = () => {
         scrollToHome={scrollToHome}
       />
       <Advertisement adRef={adRef} />
-      <ProductTable products={products} productRef={productRef} />
+      <ProductTable products={allProducts} productRef={productRef} />
     </>
   );
 };
