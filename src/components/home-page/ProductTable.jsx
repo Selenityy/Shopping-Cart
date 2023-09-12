@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { ProductsContext } from "../../App";
 import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
-const ProductTable = ({ products, productRef }) => {
-  const productList = [...products];
+const ProductTable = ({ productRef }) => {
+  const { allProducts, selectedProducts } = useContext(ProductsContext);
+  console.log("Products:", allProducts);
+  console.log("Selected Products:", selectedProducts);
+
+  const productList = [...allProducts];
   console.log("Products:", productList);
 
   const [productQuantity, setProductQuantity] = useState([]);
@@ -24,7 +29,7 @@ const ProductTable = ({ products, productRef }) => {
 
   return (
     <div ref={productRef} id="product-section" className="sections">
-      {products.map((product, index) => (
+      {allProducts.map((product, index) => (
         <div key={product.id} id={`product-${product.id}`} className="products">
           <img
             className="product-image"
