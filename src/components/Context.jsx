@@ -34,7 +34,6 @@ const Context = ({ children }) => {
         }
 
         const data = await response.json();
-        // console.log("Data: ", data);
 
         const products = data.map((product) => ({
           id: product.id,
@@ -79,7 +78,6 @@ const Context = ({ children }) => {
   //   };
 
   const decreaseQuantity = (productId) => {
-    console.log("inside the - click");
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
         if (product.id === productId && product.quantity > 0) {
@@ -94,7 +92,6 @@ const Context = ({ children }) => {
   };
 
   const increaseQuantity = (productId) => {
-    console.log("inside the add click");
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
         if (product.id === productId) {
@@ -107,7 +104,6 @@ const Context = ({ children }) => {
       });
     });
   };
-  console.log("Updated products:", products);
 
   const addToCart = (productId) => {
     const updatedCartItems = [...cartItems];
@@ -116,9 +112,7 @@ const Context = ({ children }) => {
       updatedCartItems.push(foundProduct);
       setCartItems(updatedCartItems);
     }
-    console.log("inside add to cart");
   };
-  console.log("Cart Items:", cartItems);
 
   return (
     <>
