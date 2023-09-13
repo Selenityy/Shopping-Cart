@@ -116,7 +116,7 @@ const Context = ({ children }) => {
       <ShopContext.Provider
         value={{
           cartItems,
-          products: fetchedProducts,
+          products,
           addToCart,
           increaseQuantity,
           decreaseQuantity,

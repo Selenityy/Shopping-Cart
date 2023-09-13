@@ -7,6 +7,8 @@ const ProductTable = ({ productRef }) => {
   const { products, cartItems, addToCart, increaseQuantity, decreaseQuantity } =
     useContext(ShopContext);
 
+  console.log("Selena:", products);
+
   return (
     <div ref={productRef} id="product-section" className="sections">
       {products.map((product, index) => (
@@ -26,7 +28,7 @@ const ProductTable = ({ productRef }) => {
             onClick={() => decreaseQuantity(product.id)}
             label="-"
           />
-          <div>{product.quantity}</div>
+          <div id={`product-qty-${index}`}>{product.quantity}</div>
           <Button
             id={`add-qty-${index}`}
             className="qty-btn"
