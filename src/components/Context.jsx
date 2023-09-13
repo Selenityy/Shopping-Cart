@@ -44,21 +44,28 @@ const Context = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log("Fetched Products:", fetchedProducts);
     const fetchedProductsArray = [...fetchedProducts];
     const productsWithQuantity = fetchedProductsArray.map((product) => ({
       ...product,
       quantity: 0,
     }));
     setProducts(productsWithQuantity);
-    console.log("Quantity Updated:", productsWithQuantity);
   }, [fetchedProducts]);
 
   const handleMinusClick = () => {};
 
   const handleAddClick = () => {};
 
-  const addToCart = () => {};
+  const addToCart = (productId) => {
+    const updatedCartItems = [...cartItems];
+    const foundProduct = products.find((product) => product.id === productId);
+    if (foundProduct) {
+      updatedCartItems.push(foundProduct);
+      setCartItems(updatedCartItems);
+    }
+    console.log("inside add to cart");
+  };
+  console.log("Cart Items:", cartItems);
 
   return (
     <>

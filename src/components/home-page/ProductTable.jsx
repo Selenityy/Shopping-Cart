@@ -35,7 +35,7 @@ const ProductTable = ({ productRef }) => {
           <Button
             id="add-to-cart"
             className="qty-btn"
-            // onClick={increase selected items array by digit in input field}
+            onClick={() => addToCart(product.id)}
             label="Add to Cart"
           />
         </div>
