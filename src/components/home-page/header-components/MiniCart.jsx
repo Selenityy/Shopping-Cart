@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShopContext } from "../../Context";
 import "../../../styles/MiniCart.css";
 import Button from "../../utilities/Button";
 
-const MiniCart = ({ cartItemCount, isVisible, handleCartClick }) => {
+const MiniCart = ({ isVisible, handleCartClick }) => {
+  const { allProducts, cartItems } = useContext(ShopContext);
+
   const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
 
   const navigate = useNavigate();
@@ -15,7 +18,7 @@ const MiniCart = ({ cartItemCount, isVisible, handleCartClick }) => {
   return (
     <div id="mini-checkout-display" className={cartDisplayClass}>
       <h2 id="mini-cart">Your Cart</h2>
-      <div>({cartItemCount})</div>
+      <div>({cartItems.length})</div>
       <hr width="200px" id="hr"></hr>
       <img className="cart-item-img"></img>
       <div className="cart-item-name">Item</div>

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import { ProductsContext } from "../Context";
+import React, { useContext } from "react";
+import { ShopContext } from "../Context";
 import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
-  const { allProducts, selectedProducts } = useContext(ProductsContext);
+  const { allProducts, cartItems } = useContext(ShopContext);
   const productList = [...allProducts];
 
   const addProduct = (productToAdd, quantityToAdd) => {};

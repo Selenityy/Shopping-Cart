@@ -4,8 +4,6 @@ import Header from "./Header";
 import ProductTable from "./ProductTable";
 
 const HomePage = () => {
-  //   const products = useContext(ProductsContext);
-
   const adRef = useRef(null);
   const productRef = useRef(null);
   const homeRef = useRef(null);
