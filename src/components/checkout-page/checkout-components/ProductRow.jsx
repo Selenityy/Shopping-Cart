@@ -5,22 +5,6 @@ import Button from "../../utilities/Button";
 const ProductRow = () => {
   const { cartItems, increaseQuantityInCheckout, decreaseQuantityInCheckout } = useContext(ShopContext);
 
-//   const increaseQuantityInCheckout = (productId) => {
-//     const productIndex = cartItems.findIndex((item) => item.id === productId);
-//     const updatedCartItems = [...cartItems];
-//     updatedCartItems[productIndex].quantity += 1;
-//     setCartItems(updatedCartItems);
-//   };
-
-//   const decreaseQuantityInCheckout = (productId) => {
-//     const productIndex = cartItems.findIndex((item) => item.id === productId);
-//     const updatedCartItems = [...cartItems];
-//     if (updatedCartItems[productIndex].quantity > 0) {
-//       updatedCartItems[productIndex].quantity -= 1;
-//       setCartItems(updatedCartItems);
-//     }
-//   };
-
   return (
     <div>
       {cartItems.map((product, index) => {
