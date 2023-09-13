@@ -4,30 +4,11 @@ import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
-  const { allProducts, cartItems } = useContext(ShopContext);
-  const productList = [...allProducts];
-
-  const addProduct = (productToAdd, quantityToAdd) => {};
-
-  //   const [productQuantity, setProductQuantity] = useState([]);
-
-  //   const handleMinusClick = (index) => {
-  //     const newProductQuantity = [...productQuantity];
-  //     if (newProductQuantity[index] > 0) {
-  //       newProductQuantity[index] -= 1;
-  //       setProductQuantity(newProductQuantity);
-  //     }
-  //   };
-
-  //   const handleAddClick = (index) => {
-  //     const newProductQuantity = [...productList];
-  //     newProductQuantity[index].quantity += 1;
-  //     setProductQuantity(newProductQuantity);
-  //   };
+  const { products, cartItems, addToCart } = useContext(ShopContext);
 
   return (
     <div ref={productRef} id="product-section" className="sections">
-      {allProducts.map((product, index) => (
+      {products.map((product, index) => (
         <div key={product.id} id={`product-${product.id}`} className="products">
           <img
             className="product-image"
