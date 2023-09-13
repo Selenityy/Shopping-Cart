@@ -9,12 +9,14 @@ export const ShopContext = createContext({
   increaseQuantityInCheckout: () => {},
   decreaseQuantityInCheckout: () => {},
   cartTotalItems: 0,
+  totalPrice: 0,
 });
 
 const Context = ({ children }) => {
   const [fetchedProducts, setFetchedProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const initialValue = 0;
   const cartTotalItems = cartItems
@@ -117,6 +119,17 @@ const Context = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      const newTotalPrice = cartItems.reduce((total, product) => {
+        const productPrice = product.quantity * product.price;
+        return total + productPrice;
+      }, 0);
+      setTotalPrice(newTotalPrice);
+    };
+    calculateTotalPrice();
+  }, [cartItems]);
+
   return (
     <>
       <ShopContext.Provider
@@ -129,6 +142,7 @@ const Context = ({ children }) => {
           increaseQuantityInCheckout,
           decreaseQuantityInCheckout,
           cartTotalItems,
+          totalPrice,
         }}
       >
         {children}
