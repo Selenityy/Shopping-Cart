@@ -1,14 +1,14 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
-export const ProductsContext = React.createContext([]);
+export const ShopContext = createContext({
+  allProducts: [],
+  cartItems: [],
+  addToCart: () => {},
+});
 
 const Context = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
-  const contextValues = {
-    allProducts,
-    selectedProducts,
-  };
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,12 +47,13 @@ const Context = ({ children }) => {
 
   const handleAddClick = () => {};
 
+  const addToCart = () => {};
+
   return (
     <>
-      <ProductsContext.Provider value={contextValues}>
-        {/* <Outlet /> */}
+      <ShopContext.Provider value={{ cartItems, allProducts, addToCart }}>
         {children}
-      </ProductsContext.Provider>
+      </ShopContext.Provider>
     </>
   );
 };
