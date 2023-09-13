@@ -1,31 +1,29 @@
 import React, { useContext, useState } from "react";
-import { ProductsContext } from "../../App";
+import { ProductsContext } from "../Context";
 import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
   const { allProducts, selectedProducts } = useContext(ProductsContext);
-  console.log("Products:", allProducts);
-  console.log("Selected Products:", selectedProducts);
-
   const productList = [...allProducts];
-  console.log("Products:", productList);
 
-  const [productQuantity, setProductQuantity] = useState([]);
+  const addProduct = (productToAdd, quantityToAdd) => {};
 
-  const handleMinusClick = (index) => {
-    const newProductQuantity = [...productQuantity];
-    if (newProductQuantity[index] > 0) {
-      newProductQuantity[index] -= 1;
-      setProductQuantity(newProductQuantity);
-    }
-  };
+  //   const [productQuantity, setProductQuantity] = useState([]);
 
-  const handleAddClick = (index) => {
-    const newProductQuantity = [...productList];
-    newProductQuantity[index].quantity += 1;
-    setProductQuantity(newProductQuantity);
-  };
+  //   const handleMinusClick = (index) => {
+  //     const newProductQuantity = [...productQuantity];
+  //     if (newProductQuantity[index] > 0) {
+  //       newProductQuantity[index] -= 1;
+  //       setProductQuantity(newProductQuantity);
+  //     }
+  //   };
+
+  //   const handleAddClick = (index) => {
+  //     const newProductQuantity = [...productList];
+  //     newProductQuantity[index].quantity += 1;
+  //     setProductQuantity(newProductQuantity);
+  //   };
 
   return (
     <div ref={productRef} id="product-section" className="sections">
@@ -43,14 +41,14 @@ const ProductTable = ({ productRef }) => {
           <Button
             id={`minus-qty-${index}`}
             className="qty-btn"
-            onClick={() => handleMinusClick(index)}
+            // onClick={() => handleMinusClick(index)}
             label="-"
           />
           <div>{product.quantity}</div>
           <Button
             id={`add-qty-${index}`}
             className="qty-btn"
-            onClick={() => handleAddClick(index)}
+            // onClick={() => handleAddClick(index)}
             label="+"
           />
           <Button
