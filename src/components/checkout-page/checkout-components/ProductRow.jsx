@@ -3,7 +3,23 @@ import { ShopContext } from "../../Context";
 import Button from "../../utilities/Button";
 
 const ProductRow = () => {
-  const { cartItems } = useContext(ShopContext);
+  const { cartItems, increaseQuantityInCheckout, decreaseQuantityInCheckout } = useContext(ShopContext);
+
+//   const increaseQuantityInCheckout = (productId) => {
+//     const productIndex = cartItems.findIndex((item) => item.id === productId);
+//     const updatedCartItems = [...cartItems];
+//     updatedCartItems[productIndex].quantity += 1;
+//     setCartItems(updatedCartItems);
+//   };
+
+//   const decreaseQuantityInCheckout = (productId) => {
+//     const productIndex = cartItems.findIndex((item) => item.id === productId);
+//     const updatedCartItems = [...cartItems];
+//     if (updatedCartItems[productIndex].quantity > 0) {
+//       updatedCartItems[productIndex].quantity -= 1;
+//       setCartItems(updatedCartItems);
+//     }
+//   };
 
   return (
     <div>
@@ -29,14 +45,14 @@ const ProductRow = () => {
             <Button
               id={`cart-minus-qty-${index}`}
               className="cart-qty-btn"
-              // onClick={() => decreaseFromCart(product.id)}
+              onClick={() => decreaseQuantityInCheckout(product.id)}
               label="-"
             />
             <h4 id={`cartItem-qty-${product.id}`}>{product.quantity}</h4>
             <Button
               id={`cart-add-qty-${index}`}
               className="cart-qty-btn"
-              // onClick={() => increaseFromCart(product.id)}
+              onClick={() => increaseQuantityInCheckout(product.id)}
               label="+"
             />
             <h4 id={`cartItem-total-${product.id}`}>{`$${totalPrice}`}</h4>

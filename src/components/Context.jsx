@@ -6,6 +6,8 @@ export const ShopContext = createContext({
   addToCart: () => {},
   increaseQuantity: () => {},
   decreaseQuantity: () => {},
+  increaseQuantityInCheckout: () => {},
+  decreaseQuantityInCheckout: () => {},
   cartTotalItems: 0,
 });
 
@@ -62,21 +64,6 @@ const Context = ({ children }) => {
     setProducts(productsWithQuantity);
   }, [fetchedProducts]);
 
-  //   const cartReducer = (state, action) => {
-  //     switch (action.type) {
-  //       case "Add_to_Cart":
-  //         const foundProduct = state.products.find(
-  //           (product) => product.id === action.productId
-  //         );
-  //         if (foundProduct) {
-  //           return {
-  //             ...state,
-  //             cartItems: [...state.cartItems, foundProduct],
-  //           };
-  //         }
-  //     }
-  //   };
-
   const decreaseQuantity = (productId) => {
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
@@ -114,6 +101,22 @@ const Context = ({ children }) => {
     }
   };
 
+  const increaseQuantityInCheckout = (productId) => {
+    const productIndex = cartItems.findIndex((item) => item.id === productId);
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[productIndex].quantity += 1;
+    setCartItems(updatedCartItems);
+  };
+
+  const decreaseQuantityInCheckout = (productId) => {
+    const productIndex = cartItems.findIndex((item) => item.id === productId);
+    const updatedCartItems = [...cartItems];
+    if (updatedCartItems[productIndex].quantity > 0) {
+      updatedCartItems[productIndex].quantity -= 1;
+      setCartItems(updatedCartItems);
+    }
+  };
+
   return (
     <>
       <ShopContext.Provider
@@ -123,6 +126,8 @@ const Context = ({ children }) => {
           addToCart,
           increaseQuantity,
           decreaseQuantity,
+          increaseQuantityInCheckout,
+          decreaseQuantityInCheckout,
           cartTotalItems,
         }}
       >
