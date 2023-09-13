@@ -12,6 +12,7 @@ const CheckoutCalculationsTable = () => {
       <Button id="code-btn" label="Apply" />
       <h4>Subtotal:</h4>
       <h4>{`$${totalPrice.toFixed(2)}`}</h4>
+      <h4>Shipping & taxes will be calculated at checkout.</h4>
       <Button id="final-checkout-btn" label="Checkout" />
     </div>
   );
