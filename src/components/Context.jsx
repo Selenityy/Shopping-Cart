@@ -6,12 +6,21 @@ export const ShopContext = createContext({
   addToCart: () => {},
   increaseQuantity: () => {},
   decreaseQuantity: () => {},
+  cartTotalItems: 0,
 });
 
 const Context = ({ children }) => {
   const [fetchedProducts, setFetchedProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+
+  const initialValue = 0;
+  const cartTotalItems = cartItems
+    .map((product) => product.quantity)
+    .reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue
+    );
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -120,6 +129,7 @@ const Context = ({ children }) => {
           addToCart,
           increaseQuantity,
           decreaseQuantity,
+          cartTotalItems,
         }}
       >
         {children}

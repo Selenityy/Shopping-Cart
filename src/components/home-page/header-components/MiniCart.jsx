@@ -5,7 +5,7 @@ import "../../../styles/MiniCart.css";
 import Button from "../../utilities/Button";
 
 const MiniCart = ({ isVisible, handleCartClick }) => {
-  const { products, cartItems } = useContext(ShopContext);
+  const { cartItems, cartTotalItems } = useContext(ShopContext);
 
   const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
 
@@ -15,10 +15,15 @@ const MiniCart = ({ isVisible, handleCartClick }) => {
     navigate("/checkout");
   };
 
+  // add up the product quantities of the cart items and display those as the div
+  // grab the product quantities for the products inside cartItems
+  // convert (if they arent already) into nums
+  // put the nums in an array and reduce to get a sum
+
   return (
     <div id="mini-checkout-display" className={cartDisplayClass}>
       <h2 id="mini-cart">Your Cart</h2>
-      <div>({cartItems.length})</div>
+      <div>({cartTotalItems})</div>
       <hr width="200px" id="hr"></hr>
       <img className="cart-item-img"></img>
       <div className="cart-item-name">Item</div>
