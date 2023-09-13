@@ -1,13 +1,14 @@
 import React, { useState, useEffect, createContext } from "react";
 
 export const ShopContext = createContext({
-  allProducts: [],
+  products: [],
   cartItems: [],
   addToCart: () => {},
 });
 
 const Context = ({ children }) => {
-  const [allProducts, setAllProducts] = useState([]);
+  const [fetchedProducts, setFetchedProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -31,10 +32,9 @@ const Context = ({ children }) => {
           price: product.price,
           image: product.image,
           category: product.category,
-          quantity: 0,
         }));
 
-        setAllProducts(products);
+        setFetchedProducts(products);
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -42,6 +42,17 @@ const Context = ({ children }) => {
 
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    console.log("Fetched Products:", fetchedProducts);
+    const fetchedProductsArray = [...fetchedProducts];
+    const productsWithQuantity = fetchedProductsArray.map((product) => ({
+      ...product,
+      quantity: 0,
+    }));
+    setProducts(productsWithQuantity);
+    console.log("Quantity Updated:", productsWithQuantity);
+  }, [fetchedProducts]);
 
   const handleMinusClick = () => {};
 
@@ -51,7 +62,9 @@ const Context = ({ children }) => {
 
   return (
     <>
-      <ShopContext.Provider value={{ cartItems, allProducts, addToCart }}>
+      <ShopContext.Provider
+        value={{ cartItems, products: fetchedProducts, addToCart }}
+      >
         {children}
       </ShopContext.Provider>
     </>
