@@ -4,7 +4,8 @@ export const ShopContext = createContext({
   products: [],
   cartItems: [],
   addToCart: () => {},
-  handleAddClick: () => {},
+  increaseQuantity: () => {},
+  decreaseQuantity: () => {},
 });
 
 const Context = ({ children }) => {
@@ -53,8 +54,6 @@ const Context = ({ children }) => {
     setProducts(productsWithQuantity);
   }, [fetchedProducts]);
 
-  //   const handleMinusClick = () => {};
-
   //   const cartReducer = (state, action) => {
   //     switch (action.type) {
   //       case "Add_to_Cart":
@@ -70,7 +69,22 @@ const Context = ({ children }) => {
   //     }
   //   };
 
-  const handleAddClick = (productId) => {
+  const decreaseQuantity = (productId) => {
+    console.log("inside the - click");
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        if (product.id === productId && product.quantity > 0) {
+          return {
+            ...product,
+            quantity: product.quantity - 1,
+          };
+        }
+        return product;
+      });
+    });
+  };
+
+  const increaseQuantity = (productId) => {
     console.log("inside the add click");
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
@@ -104,7 +118,8 @@ const Context = ({ children }) => {
           cartItems,
           products: fetchedProducts,
           addToCart,
-          handleAddClick,
+          increaseQuantity,
+          decreaseQuantity,
         }}
       >
         {children}

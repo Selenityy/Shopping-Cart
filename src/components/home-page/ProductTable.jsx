@@ -4,7 +4,7 @@ import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
-  const { products, cartItems, addToCart, handleAddClick } =
+  const { products, cartItems, addToCart, increaseQuantity, decreaseQuantity } =
     useContext(ShopContext);
 
   return (
@@ -23,14 +23,14 @@ const ProductTable = ({ productRef }) => {
           <Button
             id={`minus-qty-${index}`}
             className="qty-btn"
-            // onClick={() => handleMinusClick(index)}
+            onClick={() => decreaseQuantity(product.id)}
             label="-"
           />
           <div>{product.quantity}</div>
           <Button
             id={`add-qty-${index}`}
             className="qty-btn"
-            onClick={() => handleAddClick(product.id)}
+            onClick={() => increaseQuantity(product.id)}
             label="+"
           />
           <Button
