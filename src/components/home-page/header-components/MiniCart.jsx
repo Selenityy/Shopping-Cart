@@ -5,7 +5,7 @@ import "../../../styles/MiniCart.css";
 import Button from "../../utilities/Button";
 
 const MiniCart = ({ isVisible, handleCartClick }) => {
-  const { allProducts, cartItems } = useContext(ShopContext);
+  const { products, cartItems } = useContext(ShopContext);
 
   const cartDisplayClass = isVisible ? "toggle-on" : "toggle-off";
 
