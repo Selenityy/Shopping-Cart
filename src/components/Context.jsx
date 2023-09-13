@@ -1,9 +1,10 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useReducer } from "react";
 
 export const ShopContext = createContext({
   products: [],
   cartItems: [],
   addToCart: () => {},
+  handleAddClick: () => {},
 });
 
 const Context = ({ children }) => {
@@ -52,9 +53,38 @@ const Context = ({ children }) => {
     setProducts(productsWithQuantity);
   }, [fetchedProducts]);
 
-  const handleMinusClick = () => {};
+  //   const handleMinusClick = () => {};
 
-  const handleAddClick = () => {};
+  //   const cartReducer = (state, action) => {
+  //     switch (action.type) {
+  //       case "Add_to_Cart":
+  //         const foundProduct = state.products.find(
+  //           (product) => product.id === action.productId
+  //         );
+  //         if (foundProduct) {
+  //           return {
+  //             ...state,
+  //             cartItems: [...state.cartItems, foundProduct],
+  //           };
+  //         }
+  //     }
+  //   };
+
+  const handleAddClick = (productId) => {
+    console.log("inside the add click");
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        if (product.id === productId) {
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          };
+        }
+        return product;
+      });
+    });
+  };
+  console.log("Updated products:", products);
 
   const addToCart = (productId) => {
     const updatedCartItems = [...cartItems];
@@ -70,7 +100,12 @@ const Context = ({ children }) => {
   return (
     <>
       <ShopContext.Provider
-        value={{ cartItems, products: fetchedProducts, addToCart }}
+        value={{
+          cartItems,
+          products: fetchedProducts,
+          addToCart,
+          handleAddClick,
+        }}
       >
         {children}
       </ShopContext.Provider>

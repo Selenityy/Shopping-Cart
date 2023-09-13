@@ -4,7 +4,8 @@ import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
-  const { products, cartItems, addToCart } = useContext(ShopContext);
+  const { products, cartItems, addToCart, handleAddClick } =
+    useContext(ShopContext);
 
   return (
     <div ref={productRef} id="product-section" className="sections">
@@ -29,7 +30,7 @@ const ProductTable = ({ productRef }) => {
           <Button
             id={`add-qty-${index}`}
             className="qty-btn"
-            // onClick={() => handleAddClick(index)}
+            onClick={() => handleAddClick(product.id)}
             label="+"
           />
           <Button
