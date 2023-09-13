@@ -4,10 +4,8 @@ import Button from "../utilities/Button";
 import "../../styles/ProductTable.css";
 
 const ProductTable = ({ productRef }) => {
-  const { products, cartItems, addToCart, increaseQuantity, decreaseQuantity } =
+  const { products, addToCart, increaseQuantity, decreaseQuantity } =
     useContext(ShopContext);
-
-  console.log("Selena:", products);
 
   return (
     <div ref={productRef} id="product-section" className="sections">
