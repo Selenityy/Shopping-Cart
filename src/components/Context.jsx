@@ -113,9 +113,14 @@ const Context = ({ children }) => {
   const decreaseQuantityInCheckout = (productId) => {
     const productIndex = cartItems.findIndex((item) => item.id === productId);
     const updatedCartItems = [...cartItems];
-    if (updatedCartItems[productIndex].quantity > 0) {
+    while (updatedCartItems[productIndex].quantity > 0) {
       updatedCartItems[productIndex].quantity -= 1;
       setCartItems(updatedCartItems);
+    }
+    if (updatedCartItems[productIndex].quantity === 0) {
+      const itemToRemove = updatedCartItems[productIndex];
+      const newArray = updatedCartItems.filter((item) => item !== itemToRemove);
+      setCartItems(newArray);
     }
   };
 
