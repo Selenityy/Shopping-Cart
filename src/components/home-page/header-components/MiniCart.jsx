@@ -19,7 +19,7 @@ const MiniCart = ({ isVisible, handleCartClick }) => {
     <div id="mini-checkout-display" className={cartDisplayClass}>
       <h2 id="mini-cart">Your Cart</h2>
       <div>({cartTotalItems})</div>
-      <hr width="200px" id="hr"></hr>
+      {cartItems.length > 0 && <hr width="200px" id="hr"></hr>}
       {cartItems.map((product, index) => (
         <div
           key={product.id}
