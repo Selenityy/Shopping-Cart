@@ -1,4 +1,5 @@
-import React, { useState, useEffect, createContext, useReducer } from "react";
+import React, { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext({
   products: [],
@@ -8,8 +9,11 @@ export const ShopContext = createContext({
   decreaseQuantity: () => {},
   increaseQuantityInCheckout: () => {},
   decreaseQuantityInCheckout: () => {},
+  handleShowAlert: () => {},
+  handleCloseAlert: () => {},
   cartTotalItems: 0,
   totalPrice: 0,
+  showAlert: false,
 });
 
 const Context = ({ children }) => {
@@ -17,6 +21,9 @@ const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();
 
   const initialValue = 0;
   const cartTotalItems = cartItems
@@ -135,6 +142,17 @@ const Context = ({ children }) => {
     calculateTotalPrice();
   }, [cartItems]);
 
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+    navigate("/");
+    const wipeCart = [];
+    setCartItems(wipeCart);
+  };
+
   return (
     <>
       <ShopContext.Provider
@@ -146,8 +164,11 @@ const Context = ({ children }) => {
           decreaseQuantity,
           increaseQuantityInCheckout,
           decreaseQuantityInCheckout,
+          handleShowAlert,
+          handleCloseAlert,
           cartTotalItems,
           totalPrice,
+          showAlert,
         }}
       >
         {children}
