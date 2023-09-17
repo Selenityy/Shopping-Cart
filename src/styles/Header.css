@@ -4,9 +4,10 @@
   width: 100%;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: 1fr min-content;
+  grid-template-rows: 1fr min-content min-content;
   grid-template-areas:
     ". brand  logo"
+    "hr hr hr"
     "buttons buttons buttons";
   background-color: black;
   color: white;
@@ -24,6 +25,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#header-hr {
+  grid-area: hr;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 20px;
 }
 
 #page-selection-buttons {
