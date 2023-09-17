@@ -1,4 +1,5 @@
 import Button from "../../utilities/Button";
+import "../../../styles/Header.css";
 
 const PageSelections = ({ scrollToAd, scrollToProducts, scrollToHome }) => {
   return (

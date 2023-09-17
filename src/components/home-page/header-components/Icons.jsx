@@ -1,5 +1,6 @@
 import React from "react";
 import cart from "../../../assets/shopping-bag.png";
+import "../../../styles/Header.css"
 
 const Icons = ({handleCartClick}) => {
 
