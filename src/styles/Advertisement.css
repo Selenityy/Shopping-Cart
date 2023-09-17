@@ -1,0 +1,11 @@
+#ad-section {
+  background-image: url("../assets/ad.png");
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+  /* background-position-x: 50%; */
+  background-position-y: 40%;
+  /* background-size: auto 500px; */
+  height: 400px;
+  width: auto;
+  border: 1px solid transparent;
+}

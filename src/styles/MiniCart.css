@@ -5,3 +5,7 @@
 .toggle-on {
   display: block;
 }
+
+#mini-checkout-display {
+  color: black;
+}
