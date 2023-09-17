@@ -19,6 +19,7 @@ const Header = ({ scrollToAd, scrollToProducts, scrollToHome }) => {
         scrollToProducts={scrollToProducts}
         scrollToHome={scrollToHome}
       />
+      <div id="header-hr" className="horizontal-line"></div>
       <Icons handleCartClick={handleCartClick} />
       <MiniCart
         handleCartClick={handleCartClick}
