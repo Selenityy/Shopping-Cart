@@ -1,5 +1,5 @@
 #full-checkout-page {
-    margin: 30px 200px 30px 200px;
+    padding: 0px 200px 30px 200px;
 }
 
 #checkout-title-and-btn {
@@ -249,6 +249,6 @@
 }
 
 #discount-and-checkout {
-  margin-right: 100px;
+  /* margin-right: 100px; */
   margin-top: 50px;
 }
