@@ -20,6 +20,7 @@ const CheckoutPage = () => {
         </button>
       </div>
       <SelectedProductTable />
+      <hr></hr>
       <CheckoutCalculationsTable />
     </div>
   );
