@@ -1,14 +1,21 @@
+#full-checkout-page {
+    margin: 30px 200px 30px 200px;
+}
+
 #checkout-title-and-btn {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 30px;
 }
 
 #checkout-title {
   font-size: 2.5rem;
+  margin: 0px;
+  padding-bottom: 20px;
+  padding-top: 30px;
 }
 
 #back-home-btn {
