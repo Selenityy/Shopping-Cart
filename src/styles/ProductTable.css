@@ -1,20 +1,31 @@
 #product-section {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  column-gap: 130px;
-  row-gap: 50px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  grid-template-rows: repeat(5, 1fr);
+  /* grid-template-rows: auto; */
+  column-gap: 40px;
+  row-gap: 20px;
+  /* justify-items: center;
   align-items: center;
   justify-content: center;
-  align-content: center;
+  align-content: center; */
+  /* grid-auto-flow: row dense; */
   grid-auto-rows: 1fr;
   margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .products {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  /* grid-template-columns: min-content min-content min-content min-content 1fr 1fr; */
+  grid-template-columns: 1fr min-content 1fr min-content 1fr 1fr 1fr;
+  grid-template-rows: 1fr min-content min-content;
+  grid-template-areas:
+    "product-image product-image product-image product-image product-image product-image product-image"
+    "product-names product-names product-names product-names product-names product-price product-price"
+    "product-quantity decrease amount increase . button button";
   align-items: center;
 }
 
@@ -22,4 +33,65 @@
   width: 200px;
   height: 200px;
   object-fit: contain;
+  grid-area: product-image;
+  justify-self: center;
+  align-self: center;
+}
+
+.product-names {
+  grid-area: product-names;
+  text-align: left;
+}
+
+.product-price {
+  grid-area: product-price;
+}
+
+.product-quantity {
+  grid-area: product-quantity;
+}
+
+.qty-minus-btn {
+  grid-area: decrease;
+}
+
+.product-actual-quantity {
+  grid-area: amount;
+}
+
+.qty-add-btn {
+  grid-area: increase;
+}
+
+.qty-btn {
+  grid-area: button;
+  background: black;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.qty-btn:active {
+  background: white;
+  border: 1px solid black;
+  background-position: 0 0;
+  color: black;
 }
