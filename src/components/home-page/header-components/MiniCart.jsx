@@ -17,9 +17,11 @@ const MiniCart = ({ isVisible, handleCartClick }) => {
 
   return (
     <div id="mini-checkout-display" className={cartDisplayClass}>
-      <h2 id="mini-cart">Your Cart</h2>
-      <div>({cartTotalItems})</div>
-      {cartItems.length > 0 && <hr width="200px" id="hr"></hr>}
+      <div id="mini-cart-details">
+        <h2 id="mini-cart">Your Cart</h2>
+        <div id="mini-cart-total-items">({cartTotalItems})</div>
+      </div>
+      {cartItems.length > 0 && <hr width="100%" id="mini-cart-hr"></hr>}
       {cartItems.map((product, index) => (
         <div
           key={product.id}
@@ -36,21 +38,25 @@ const MiniCart = ({ isVisible, handleCartClick }) => {
           <div className="cart-item-prices">{`$${product.price}`}</div>
         </div>
       ))}
-      <hr width="200px" id="hr"></hr>
-      <div id="cart-subtotal">Subtotal</div>
-      <div id="cart-subtotal-price">{`$${totalPrice.toFixed(2)}`}</div>
-      <Button
-        id="mini-cart-continue-shopping"
-        className="mini-cart-btn"
-        onClick={handleCartClick}
-        label="Continue Shopping"
-      />
-      <Button
-        id="mini-cart-view-cart"
-        className="mini-cart-btn"
-        onClick={handleCheckoutClick}
-        label="View Cart"
-      />
+      <hr width="100%" id="mini-cart-hr-line"></hr>
+      <div id="mini-cart-totals">
+        <div id="cart-subtotal">Subtotal</div>
+        <div id="cart-subtotal-price">{`$${totalPrice.toFixed(2)}`}</div>
+      </div>
+      <div id="mini-cart-buttons">
+        <Button
+          id="mini-cart-continue-shopping"
+          className="mini-cart-btn"
+          onClick={handleCartClick}
+          label="Continue Shopping"
+        />
+        <Button
+          id="mini-cart-view-cart"
+          className="mini-cart-btn"
+          onClick={handleCheckoutClick}
+          label="View Cart"
+        />
+      </div>
     </div>
   );
 };
