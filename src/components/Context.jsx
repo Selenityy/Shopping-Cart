@@ -121,7 +121,7 @@ const Context = ({ children }) => {
   const decreaseQuantityInCheckout = (productId) => {
     const productIndex = cartItems.findIndex((item) => item.id === productId);
     const updatedCartItems = [...cartItems];
-    while (updatedCartItems[productIndex].quantity > 0) {
+    if (updatedCartItems[productIndex].quantity > 0) {
       updatedCartItems[productIndex].quantity -= 1;
       setCartItems(updatedCartItems);
     }
