@@ -11,11 +11,15 @@ const CheckoutCalculationsTable = () => {
 
   return (
     <div>
-      <FormInput id="discount-code" type="text" placeholder="Discount Code" />
-      <Button id="code-btn" label="Apply" />
-      <h4>Subtotal:</h4>
-      <h4>{`$${totalPrice.toFixed(2)}`}</h4>
-      <h4>Shipping & taxes will be calculated at checkout.</h4>
+      <div id="discount-code-group">
+        <FormInput id="discount-code" type="text" placeholder="Discount Code" />
+        <Button id="code-btn" label="Apply" />
+      </div>
+      <div id="subtotal-group">
+        <h4>Subtotal:</h4>
+        <h4>{`$${totalPrice.toFixed(2)}`}</h4>
+      </div>
+      <h4 id="shipping-and-handling">Shipping & taxes will be calculated at checkout.</h4>
       <Button
         id="final-checkout-btn"
         label="Checkout"

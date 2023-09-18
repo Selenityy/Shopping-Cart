@@ -8,7 +8,7 @@ const ProductRow = () => {
     useContext(ShopContext);
 
   return (
-    <div>
+    <div id="listed-checkout-products">
       {cartItems.map((product, index) => {
         const totalPrice = product.quantity * product.price;
         return (
@@ -34,14 +34,14 @@ const ProductRow = () => {
               onClick={() => decreaseQuantityInCheckout(product.id)}
               label="-"
             />
-            <h4 id={`cartItem-qty-${product.id}`}>{product.quantity}</h4>
+            <h4 className="cart-item-quantities" id={`cartItem-qty-${product.id}`}>{product.quantity}</h4>
             <Button
               id={`cart-add-qty-${index}`}
               className="cart-qty-btn"
               onClick={() => increaseQuantityInCheckout(product.id)}
               label="+"
             />
-            <h4 id={`cartItem-total-${product.id}`}>{`$${totalPrice}`}</h4>
+            <h4 className="cart-totals-calculated" id={`cartItem-total-${product.id}`}>{`$${totalPrice}`}</h4>
           </div>
         );
       })}
