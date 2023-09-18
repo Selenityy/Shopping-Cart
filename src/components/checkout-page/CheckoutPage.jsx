@@ -13,10 +13,12 @@ const CheckoutPage = () => {
 
   return (
     <div>
-      <h2 id="checkout-title">Checkout Page</h2>
-      <button id="back-home-btn" onClick={handleGoBackClick}>
-        Go Back to Home
-      </button>
+      <div id="checkout-title-and-btn">
+        <h2 id="checkout-title">Checkout Page</h2>
+        <button id="back-home-btn" onClick={handleGoBackClick}>
+          Go Back to Home
+        </button>
+      </div>
       <SelectedProductTable />
       <CheckoutCalculationsTable />
     </div>
