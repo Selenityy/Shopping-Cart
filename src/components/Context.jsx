@@ -104,7 +104,8 @@ const Context = ({ children }) => {
   const addToCart = (productId) => {
     const updatedCartItems = [...cartItems];
     const foundProduct = products.find((product) => product.id === productId);
-    if (foundProduct) {
+    const foundProductQuantity = foundProduct.quantity;
+    if (foundProduct && foundProductQuantity > 0) {
       updatedCartItems.push(foundProduct);
       setCartItems(updatedCartItems);
     }
