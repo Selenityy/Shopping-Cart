@@ -12,7 +12,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div>
+    <div id="full-checkout-page">
       <div id="checkout-title-and-btn">
         <h2 id="checkout-title">Checkout Page</h2>
         <button id="back-home-btn" onClick={handleGoBackClick}>
