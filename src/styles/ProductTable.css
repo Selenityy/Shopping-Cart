@@ -1,16 +1,9 @@
 #product-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
   grid-template-rows: repeat(5, 1fr);
-  /* grid-template-rows: auto; */
   column-gap: 40px;
-  row-gap: 20px;
-  /* justify-items: center;
-  align-items: center;
-  justify-content: center;
-  align-content: center; */
-  /* grid-auto-flow: row dense; */
+  row-gap: 100px;
   grid-auto-rows: 1fr;
   margin-top: 100px;
   margin-left: 100px;
@@ -19,14 +12,17 @@
 
 .products {
   display: grid;
-  /* grid-template-columns: min-content min-content min-content min-content 1fr 1fr; */
-  grid-template-columns: 1fr min-content 1fr min-content 1fr 1fr 1fr;
-  grid-template-rows: 1fr min-content min-content;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, auto);
   grid-template-areas:
-    "product-image product-image product-image product-image product-image product-image product-image"
-    "product-names product-names product-names product-names product-names product-price product-price"
-    "product-quantity decrease amount increase . button button";
+    "product-image product-image product-image product-image product-image"
+    "product-names product-names product-names product-names product-names"
+    "product-price product-price product-price product-price product-price"
+    "product-quantity decrease amount increase ."
+    "button button button button button";
   align-items: center;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
 .product-image {
@@ -40,19 +36,47 @@
 
 .product-names {
   grid-area: product-names;
-  text-align: left;
+  text-align: center;
 }
 
 .product-price {
   grid-area: product-price;
+  text-align: center;
 }
 
 .product-quantity {
   grid-area: product-quantity;
+  text-align: right;
 }
 
 .qty-minus-btn {
   grid-area: decrease;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  margin-left: 20px;
+}
+
+.qty-minus-btn:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 
 .product-actual-quantity {
@@ -61,6 +85,32 @@
 
 .qty-add-btn {
   grid-area: increase;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  margin-right: 20px;
+}
+
+.qty-add-btn:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 
 .qty-btn {
@@ -87,6 +137,8 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .qty-btn:active {
