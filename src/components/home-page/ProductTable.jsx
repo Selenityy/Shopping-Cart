@@ -19,17 +19,17 @@ const ProductTable = ({ productRef }) => {
           <div className="product-names">{product.name}</div>
           {/* <div className="product-descriptions">{product.description}</div> */}
           <div className="product-price">{`$${product.price}`}</div>
-          <div>Qty</div>
+          <div className="product-quantity">Qty</div>
           <Button
             id={`minus-qty-${index}`}
-            className="qty-btn"
+            className="qty-minus-btn"
             onClick={() => decreaseQuantity(product.id)}
             label="-"
           />
-          <div id={`product-qty-${index}`}>{product.quantity}</div>
+          <div id={`product-qty-${index}`} className="product-actual-quantity">{product.quantity}</div>
           <Button
             id={`add-qty-${index}`}
-            className="qty-btn"
+            className="qty-add-btn"
             onClick={() => increaseQuantity(product.id)}
             label="+"
           />
