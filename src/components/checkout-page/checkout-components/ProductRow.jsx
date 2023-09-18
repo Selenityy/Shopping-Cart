@@ -3,7 +3,8 @@ import { ShopContext } from "../../Context";
 import Button from "../../utilities/Button";
 
 const ProductRow = () => {
-  const { cartItems, increaseQuantityInCheckout, decreaseQuantityInCheckout } = useContext(ShopContext);
+  const { cartItems, increaseQuantityInCheckout, decreaseQuantityInCheckout } =
+    useContext(ShopContext);
 
   return (
     <div>
@@ -24,7 +25,7 @@ const ProductRow = () => {
               {product.name}
             </h4>
             <h4 id={`cartItem-${product.price}`} className="cartItem-price">
-              {`$${product.price}`}
+              {`$${product.price.toFixed(2)}`}
             </h4>
             <Button
               id={`cart-minus-qty-${index}`}
