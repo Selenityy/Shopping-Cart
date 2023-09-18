@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import SelectedProductTable from "./checkout-components/SelectedProductTable";
 import CheckoutCalculationsTable from "./checkout-components/CheckoutCalculationsTable";
+import "../../styles/Checkout.css";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -12,8 +13,10 @@ const CheckoutPage = () => {
 
   return (
     <div>
-      <h2>Checkout Page</h2>
-      <button onClick={handleGoBackClick}>Go Back to Home</button>
+      <h2 id="checkout-title">Checkout Page</h2>
+      <button id="back-home-btn" onClick={handleGoBackClick}>
+        Go Back to Home
+      </button>
       <SelectedProductTable />
       <CheckoutCalculationsTable />
     </div>
