@@ -22,26 +22,41 @@ const ProductRow = () => {
               src={product.image}
               alt={product.name}
             ></img>
-            <h4 id={`cartItem-${product.name}`} className="cartItem-name">
-              {product.name}
-            </h4>
-            <h4 id={`cartItem-${product.price}`} className="cartItem-price">
-              {`$${product.price.toFixed(2)}`}
-            </h4>
-            <Button
-              id={`cart-minus-qty-${index}`}
-              className="cart-qty-btn"
-              onClick={() => decreaseQuantityInCheckout(product.id)}
-              label="-"
-            />
-            <h4 className="cart-item-quantities" id={`cartItem-qty-${product.id}`}>{product.quantity}</h4>
-            <Button
-              id={`cart-add-qty-${index}`}
-              className="cart-qty-btn"
-              onClick={() => increaseQuantityInCheckout(product.id)}
-              label="+"
-            />
-            <h4 className="cart-totals-calculated" id={`cartItem-total-${product.id}`}>{`$${totalPrice}`}</h4>
+            <div className="product-checkout-details">
+              <h4 id={`cartItem-${product.name}`} className="cartItem-name">
+                {product.name}
+              </h4>
+              <h4 id={`cartItem-${product.description}`} className="cartItem-description">
+                {product.description}
+              </h4>
+              <h4 id={`cartItem-${product.price}`} className="cartItem-price">
+                {`$${product.price.toFixed(2)}`}
+              </h4>
+            </div>
+            <div className="quantity-checkout-details">
+              <Button
+                id={`cart-minus-qty-${index}`}
+                className="cart-qty-btn"
+                onClick={() => decreaseQuantityInCheckout(product.id)}
+                label="-"
+              />
+              <h4
+                className="cart-item-quantities"
+                id={`cartItem-qty-${product.id}`}
+              >
+                {product.quantity}
+              </h4>
+              <Button
+                id={`cart-add-qty-${index}`}
+                className="cart-qty-btn"
+                onClick={() => increaseQuantityInCheckout(product.id)}
+                label="+"
+              />
+            </div>
+            <h4
+              className="cart-totals-calculated"
+              id={`cartItem-total-${product.id}`}
+            >{`$${totalPrice}`}</h4>
           </div>
         );
       })}
