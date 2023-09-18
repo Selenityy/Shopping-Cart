@@ -3,6 +3,7 @@ import { ShopContext } from "../../Context";
 import Button from "../../utilities/Button";
 import FormInput from "../../utilities/FormInput";
 import CustomAlert from "../../utilities/CustomAlert";
+import "../../../styles/Checkout.css";
 
 const CheckoutCalculationsTable = () => {
   const { totalPrice, handleShowAlert, handleCloseAlert, showAlert } =

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../Context";
 import Button from "../../utilities/Button";
+import "../../../styles/Checkout.css";
 
 const ProductRow = () => {
   const { cartItems, increaseQuantityInCheckout, decreaseQuantityInCheckout } =
